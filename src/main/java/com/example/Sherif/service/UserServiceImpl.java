@@ -5,6 +5,8 @@ import com.example.Sherif.model.User;
 import com.example.Sherif.repository.UserRepository;
 import com.example.Sherif.dto.UserRegistrationDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -27,5 +29,10 @@ public class UserServiceImpl implements UserService{
                 userRegistrationDto.getEmail(),userRegistrationDto.getPassword(), Arrays.asList(new Role("Role_User")));
         return userRepository.save(user);
 
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return null;
     }
 }
